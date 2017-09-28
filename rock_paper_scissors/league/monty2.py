@@ -16,6 +16,7 @@ class Player(BasePlayer):
         self.is_reflected = False
         self.last_choice = None
         self.my_history = []
+        self.current_choice = None
 
     def play(self):
         """
@@ -27,7 +28,6 @@ class Player(BasePlayer):
         else:
             if self.is_reflected:
                 self.current_choice = self.beat(self.current_choice)
-                self.my_history.append(self.current_choice)
                 self.last_choice = self.current_choice
                 return self.current_choice
             random_number = random.randint(1, self.round_number)
